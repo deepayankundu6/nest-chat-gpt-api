@@ -14,9 +14,9 @@ Resources:
     Description: Chat GPT API Key for API Gateway
     Enabled: true
 
-  UsagePlan:
-    Type: AWS::ApiGateway::UsagePlan
-    Properties:
-      ApiStages:
-      Description: Chat GPT API Usage plan
-      UsagePlanName: Chat GPT API Usage plan
+ UsagePlan:
+  Type: AWS::ApiGateway::UsagePlan
+  Properties:
+    ApiStages:
+    Description: Chat GPT API Usage plan
+    UsagePlanName: Chat GPT API Usage plan
