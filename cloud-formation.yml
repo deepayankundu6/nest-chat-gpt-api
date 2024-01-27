@@ -10,7 +10,7 @@ Resources:
  ApiKey:
   Type: AWS::ApiGateway::ApiKey
   Properties:
-    Name: "ChatGPTAPIKey"
+    Name: ChatGPTAPIKey
     Description: Chat GPT API Key for API Gateway
     Enabled: true
 
