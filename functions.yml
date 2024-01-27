@@ -3,23 +3,13 @@ GPT:
   memorySize: 256
   timeout: 30
   logRetentionInDays: 30
-  iamRoleStatementsName: AuthLambdaRole
+  iamRoleStatementsName: GPTLambdaRole
   iamRoleStatements:
     - Effect: Allow
       Action:
-        - sts:AssumeRole
+        - ssm:GetParameters
       Resource:
-        - arn:aws:iam::${aws:accountId}:role/*
-    - Effect: Allow
-      Action:
-        - secretsmanager:GetSecretValue
-      Resource:
-        - arn:aws:secretsmanager:${aws:region}:${aws:accountId}:secret:${self:provider.stage}/*
-    - Effect: Allow
-      Action:
-        - sns:Publish
-      Resource:
-        - arn:aws:sns:${aws:region}:${aws:accountId}:${self:provider.environment.TopicName}
+        - arn:aws:ssm:${aws:region}:${aws:accountId}:parameter:${file(env.yml):ParameterName}
   events:
     - http:
         path: /{proxy+}
@@ -29,5 +19,4 @@ GPT:
           headers:
             - x-api-key
           allowCredentials: true
-          # Caches on browser and proxy for 10 minutes and doesnt allow proxy to serve out of date content
           cacheControl: "max-age=600, s-maxage=600, proxy-revalidate"

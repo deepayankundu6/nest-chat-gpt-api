@@ -1,12 +1,8 @@
 Resources: 
-  NotifierTopic:
-      Type: AWS::SNS::Topic
-      Properties:
-        TopicName: ${file(env.yml):TopicName}
-      
-  MySubscription:
-      Type: AWS::SNS::Subscription
-      Properties:
-        Endpoint: ${file(env.yml):SubscriberEmail}
-        Protocol: email
-        TopicArn: !Ref 'NotifierTopic'
+ Parameters:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Description: Chat GPT API Key
+      Value: NA
+      Name: ${file(env.yml):ParameterName}
