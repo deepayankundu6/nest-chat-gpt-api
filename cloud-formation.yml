@@ -3,7 +3,7 @@ Resources:
     Type: AWS::SSM::Parameter
     Properties:
       Type: String
-      Description: Chat GPT API Key
+      Description: Chat GPT API Key from Open AI
       Value: NA
       Name: ${file(env.yml):ParameterName}
 
@@ -11,5 +11,5 @@ Resources:
   Type: AWS::ApiGateway::ApiKey
   Properties:
     Name: "ChatGPTAPIKey"
-    Description: Chat GPT API
+    Description: Chat GPT API Key for API Gateway
     Enabled: true

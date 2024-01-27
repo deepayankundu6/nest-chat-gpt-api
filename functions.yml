@@ -1,6 +1,6 @@
 GPT:
   handler: handler.application
-  name: ChatGPTAPI-prod
+  name: ChatGptAPI-prod
   memorySize: 256
   timeout: 30
   logRetentionInDays: 30
