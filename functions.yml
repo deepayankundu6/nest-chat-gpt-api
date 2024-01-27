@@ -1,5 +1,5 @@
-Authenticate:
-  handler: handler.app
+GPT:
+  handler: handler.application
   memorySize: 256
   timeout: 30
   logRetentionInDays: 30
@@ -22,8 +22,8 @@ Authenticate:
         - arn:aws:sns:${aws:region}:${aws:accountId}:${self:provider.environment.TopicName}
   events:
     - http:
-        path: /authenticate/user
-        method: get
+        path: /{proxy+}
+        method: any
         cors:
           origin: "*"
           headers:

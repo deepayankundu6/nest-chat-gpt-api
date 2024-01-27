@@ -1,8 +1,9 @@
-service: authservice
+service: nest-serverless-lambda
 frameworkVersion: "3"
 
 plugins:
   - serverless-iam-roles-per-function
+  - serverless-plugin-optimize
   - serverless-prune-plugin
   - serverless-webpack
   - serverless-offline
