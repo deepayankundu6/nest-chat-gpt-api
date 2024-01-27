@@ -2,7 +2,7 @@ Resources:
  Parameters:
     Type: AWS::SSM::Parameter
     Properties:
-      Type: String
+      Type: SecureString
       Description: Chat GPT API Key
       Value: NA
       Name: ${file(env.yml):ParameterName}
