@@ -10,7 +10,7 @@ GPT:
       Action:
         - ssm:GetParameters
       Resource:
-        - arn:aws:ssm:${aws:region}:${aws:accountId}:parameter:${file(env.yml):ParameterName}
+        - arn:aws:ssm:${aws:region}:${aws:accountId}:parameter${file(env.yml):ParameterName}
   events:
     - http:
         path: /{proxy+}
